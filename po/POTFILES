@@ -1,0 +1,6 @@
+data/org.gnome.Example.desktop.in
+data/org.gnome.Example.appdata.xml.in
+data/org.gnome.Example.gschema.xml
+src/main.c
+src/gnome-cpp-example-window.c
+src/gnome-cpp-example-window.ui
