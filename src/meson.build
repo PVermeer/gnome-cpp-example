@@ -1,7 +1,7 @@
 gnome_cpp_example_sources = [
   'main.cpp',
-  'application.cpp',
-  'main-window.cpp'
+  'application/application.cpp',
+  'main-window/main-window.cpp'
 ]
 
 gnome_cpp_example_deps = [

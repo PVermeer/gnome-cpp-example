@@ -2,6 +2,9 @@
 #define APPLICATION_H
 
 #include <gtkmm.h>
+#include "../main-window/main-window.h"
+
+class MainWindow;
 
 class Application : public Gtk::Application
 {
@@ -10,20 +13,16 @@ protected:
 
 public:
   static Glib::RefPtr<Application> create();
+  void on_action_quit();
+  void on_action_preferences();
 
 protected:
-  // Overrides of default signal handlers:
+  // Override default signal handlers:
   void on_startup() override;
   void on_activate() override;
 
 private:
-  void create_window();
-
-  void on_menu_file_new_generic();
-  void on_menu_file_quit();
-  void on_menu_help_about();
-
-  Glib::RefPtr<Gtk::Builder> builder;
+  MainWindow *createAppWindow();
 };
 
 #endif // APPLICATION_H

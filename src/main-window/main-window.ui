@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkApplicationWindow" id="app_window">
+    <property name="default-width">600</property>
+    <property name="default-height">400</property>
+    <property name="hide-on-close">True</property>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header">
+        <child type="end">
+          <object class="GtkMenuButton" id="main-menu">
+            <property name="direction">none</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

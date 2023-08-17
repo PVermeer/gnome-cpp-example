@@ -8,11 +8,6 @@ i18n = import('i18n')
 gnome = import('gnome')
 cc = meson.get_compiler('cpp')
 
-# config_h = configuration_data()
-# config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
-# config_h.set_quoted('GETTEXT_PACKAGE', 'gnome-cpp-example')
-# config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
-# configure_file(output: 'config.h', configuration: config_h)
 add_project_arguments(['-I' + meson.project_build_root()], language: 'cpp')
 
 project_c_args = []
