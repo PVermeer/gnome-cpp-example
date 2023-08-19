@@ -1,8 +1,11 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
-#include <gtkmm.h>
 #include "../application/application.h"
+
+#include <gtkmm/applicationwindow.h>
+#include <gtkmm/builder.h>
+#include <gtkmm/menubutton.h>
 
 class Application;
 

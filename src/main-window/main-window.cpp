@@ -29,6 +29,7 @@ MainWindow *MainWindow::create()
 void MainWindow::addMainMenuActions(Application *app)
 {
   app->add_action("preferences", sigc::mem_fun(*app, &Application::on_action_preferences));
+  app->add_action("about", sigc::mem_fun(*app, &Application::on_action_about));
   app->add_action("quit", sigc::mem_fun(*app, &Application::on_action_quit));
   app->set_accel_for_action("app.quit", "<Ctrl>Q");
 }

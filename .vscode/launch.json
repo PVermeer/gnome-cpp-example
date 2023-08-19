@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Meson debug",
+      "name": "Meson run",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/builddir/src/gnome-cpp-example",
@@ -13,6 +13,34 @@
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "Meson: Build all targets",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Meson debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/builddir/src/gnome-cpp-example",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [
+        { "name": "GTK_DEBUG", "value": "all" },
+        { "name": "G_MESSAGES_DEBUG", "value": "all" }
+      ],
       "externalConsole": false,
       "MIMode": "gdb",
       "preLaunchTask": "Meson: Build all targets",

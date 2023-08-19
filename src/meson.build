@@ -1,7 +1,8 @@
 gnome_cpp_example_sources = [
   'main.cpp',
   'application/application.cpp',
-  'main-window/main-window.cpp'
+  'main-window/main-window.cpp',
+  'about-dialog/about-dialog.cpp'
 ]
 
 gnome_cpp_example_deps = [

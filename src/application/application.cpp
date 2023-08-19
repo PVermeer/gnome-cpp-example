@@ -62,7 +62,19 @@ void Application::on_activate()
 
 void Application::on_action_preferences()
 {
-  std::cout << "Preference action not defined" << std::endl;
+  std::cout << "Preference clicked" << std::endl;
+}
+
+void Application::on_action_about()
+{
+  aboutDialog.reset(new AboutDialog());
+
+  aboutDialog->signal_hide().connect([this]()
+                                     { aboutDialog.reset(); });
+
+  aboutDialog->show();
+  // // Bring it to the front, in case it was already shown:
+  aboutDialog->present();
 }
 
 void Application::on_action_quit()

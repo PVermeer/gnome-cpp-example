@@ -1,8 +1,10 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <gtkmm.h>
 #include "../main-window/main-window.h"
+#include "../about-dialog/about-dialog.h"
+
+#include <gtkmm/application.h>
 
 class MainWindow;
 
@@ -13,13 +15,16 @@ protected:
 
 public:
   static Glib::RefPtr<Application> create();
-  void on_action_quit();
   void on_action_preferences();
+  void on_action_about();
+  void on_action_quit();
 
 protected:
   // Override default signal handlers:
   void on_startup() override;
   void on_activate() override;
+
+  std::unique_ptr<AboutDialog> aboutDialog;
 
 private:
   MainWindow *createAppWindow();
