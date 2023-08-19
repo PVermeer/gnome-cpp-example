@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdexcept>
 
-MainWindow::MainWindow(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &refBuilder)
+MainWindow::MainWindow(BaseObjectType *cobject, const std::shared_ptr<Gtk::Builder> &refBuilder)
     : Gtk::ApplicationWindow(cobject),
       builder(refBuilder)
 {

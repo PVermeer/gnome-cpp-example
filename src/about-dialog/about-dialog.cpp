@@ -1,7 +1,5 @@
 #include "about-dialog.h"
 
-#include <iostream>
-
 AboutDialog::AboutDialog()
     : Gtk::AboutDialog()
 {

@@ -9,7 +9,7 @@ Application::Application()
 {
 }
 
-Glib::RefPtr<Application> Application::create()
+std::shared_ptr<Application> Application::create()
 {
   return Glib::make_refptr_for_instance<Application>(new Application());
 }

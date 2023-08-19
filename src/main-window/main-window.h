@@ -7,19 +7,21 @@
 #include <gtkmm/builder.h>
 #include <gtkmm/menubutton.h>
 
+#include <memory>
+
 class Application;
 
 class MainWindow : public Gtk::ApplicationWindow
 {
 public:
   MainWindow(BaseObjectType *cobject,
-             const Glib::RefPtr<Gtk::Builder> &refBuilder);
+             const std::shared_ptr<Gtk::Builder> &refBuilder);
 
   static MainWindow *create();
   static void addMainMenuActions(Application *app);
 
 protected:
-  Glib::RefPtr<Gtk::Builder> builder;
+  std::shared_ptr<Gtk::Builder> builder;
   Gtk::MenuButton *menu{nullptr};
 
 private:
