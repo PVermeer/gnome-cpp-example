@@ -26,10 +26,11 @@ protected:
   void on_startup() override;
   void on_activate() override;
 
+  std::unique_ptr<MainWindow> mainWindow;
   std::unique_ptr<AboutDialog> aboutDialog;
 
 private:
-  MainWindow *createAppWindow();
+  std::unique_ptr<MainWindow> &createAppWindow();
 };
 
 #endif // APPLICATION_H

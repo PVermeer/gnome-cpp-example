@@ -14,12 +14,17 @@ std::shared_ptr<Application> Application::create()
   return Glib::make_refptr_for_instance<Application>(new Application());
 }
 
-MainWindow *Application::createAppWindow()
+std::unique_ptr<MainWindow> &Application::createAppWindow()
 {
-  auto appwindow = MainWindow::create();
+  if (mainWindow.get() != nullptr)
+  {
+    return mainWindow;
+  }
+
+  mainWindow.reset(MainWindow::create());
 
   // Make sure that the application runs for as long this window is still open.
-  add_window(*appwindow);
+  add_window(*mainWindow.get());
 
   // A window can be added to an application with Gtk::Application::add_window()
   // or Gtk::Window::set_application(). When all added windows have been hidden
@@ -27,10 +32,10 @@ MainWindow *Application::createAppWindow()
   // unless Gio::Application::hold() has been called.
 
   // Delete the window when it is hidden.
-  appwindow->signal_hide().connect([appwindow]()
-                                   { delete appwindow; });
+  mainWindow->signal_hide().connect([this]()
+                                    { mainWindow.reset(); });
 
-  return appwindow;
+  return mainWindow;
 }
 
 void Application::on_startup()
@@ -41,10 +46,11 @@ void Application::on_startup()
 
 void Application::on_activate()
 {
+
   try
   {
     // The application has been started, so let's show a window.
-    auto appwindow = createAppWindow();
+    auto &appwindow = createAppWindow();
     appwindow->present();
   }
   // If create_appwindow() throws an exception (perhaps from Gtk::Builder),
@@ -73,7 +79,7 @@ void Application::on_action_about()
                                      { aboutDialog.reset(); });
 
   aboutDialog->show();
-  // // Bring it to the front, in case it was already shown:
+  // Bring it to the front, in case it was already shown.
   aboutDialog->present();
 }
 

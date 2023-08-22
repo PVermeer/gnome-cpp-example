@@ -17,7 +17,3 @@ AboutDialog::AboutDialog()
   set_website("http://www.gtkmm.org");
   set_website_label("gtkmm website");
 }
-
-AboutDialog::~AboutDialog()
-{
-}

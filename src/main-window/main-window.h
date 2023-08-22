@@ -22,7 +22,7 @@ public:
 
 protected:
   std::shared_ptr<Gtk::Builder> builder;
-  Gtk::MenuButton *menu{nullptr};
+  std::unique_ptr<Gtk::MenuButton> menu;
 
 private:
   void createMainMenu();

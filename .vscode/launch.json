@@ -11,7 +11,7 @@
       "program": "${workspaceFolder}/builddir/src/gnome-cpp-example",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${fileDirname}",
+      "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
@@ -36,7 +36,7 @@
       "program": "${workspaceFolder}/builddir/src/gnome-cpp-example",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${fileDirname}",
+      "cwd": "${workspaceFolder}",
       "environment": [
         { "name": "GTK_DEBUG", "value": "all" },
         { "name": "G_MESSAGES_DEBUG", "value": "all" }

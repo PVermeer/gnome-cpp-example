@@ -36,16 +36,25 @@ void MainWindow::addMainMenuActions(Application *app)
 
 void MainWindow::createMainMenu()
 {
-  this->menu = builder->get_widget<Gtk::MenuButton>("main-menu");
-  if (!this->menu)
+  if (menu.get() != nullptr)
+  {
+    return;
+  }
+
+  menu.reset(builder->get_widget<Gtk::MenuButton>("main-menu"));
+  if (menu.get() == nullptr)
+  {
     throw std::runtime_error("No \"main-menu\" object in main-window.ui");
+  }
 
   // Connect the menu to the MenuButton.
   // (The connection between action and menu item is specified in main_menu.ui.)
   auto menuBuilder = Gtk::Builder::create_from_resource("/main-window/main-menu.ui");
   auto menuModel = menuBuilder->get_object<Gio::MenuModel>("menu");
   if (!menuModel)
+  {
     throw std::runtime_error("No \"menu\" object in main-menu.ui");
+  }
 
-  this->menu->set_menu_model(menuModel);
+  menu->set_menu_model(menuModel);
 }
